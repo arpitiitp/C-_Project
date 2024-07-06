@@ -1,4 +1,4 @@
-/* Author           : Rutvik Viranchi Shah
+/* Author           : Arpit Singh
    Problem Solved   : Task Schedular
    Data Structure   : Priority Queue
  */
@@ -12,7 +12,7 @@ class Task{
     
     string description; // to give description
     string activity;    // to store activity name
-    int priority;       // to store priority Teaching->4 Research->3 Academic->2 outdoor activity->1
+    int priority;       // to store priority Learning->4 Coding->3 Academic->2 outdoor activity->1
     
 public:
     
@@ -45,12 +45,11 @@ public:
         
         int p;
         cout<<"Enter Task priority:"<<endl;
-        cout<<"Enter 4 for Teaching"<<endl;
-        cout<<"Enter 3 for Research"<<endl;
+        cout<<"Enter 4 for Learning"<<endl;
+        cout<<"Enter 3 for Coding"<<endl;
         cout<<"Enter 2 for Academic"<<endl;
         cout<<"Enter 1 for outdoor activity"<<endl;
-//        cin>>p;
-//        setActivityUsingPriority(p);
+
         while (1) {
             cin>>p;
             if(p==4||p==3||p==2||p==1){
@@ -70,9 +69,9 @@ public:
     void setActivityUsingPriority(int priority){
         
         if (priority==4) {
-            setActivity("Teaching");
+            setActivity("Learning");
         }else if (priority==3) {
-            setActivity("Research");
+            setActivity("Coding");
         }else if(priority==2){
             setActivity("Academic");
         }else {
@@ -88,10 +87,12 @@ public:
     }
 };
 
+
+
 /*Class to store To Do List*/
 class TaskList{
     
-    string Professor;
+    string Work;
     Task* tasks;
     int maxTasks;
     int numberOfTasks;
@@ -99,15 +100,15 @@ class TaskList{
 public:
     /* Constructors and Destructors */
     TaskList(){
-        Professor="empty";
+        Work="empty";
         tasks=NULL;
     }
     
-    TaskList(int maxTasks, string Professor){
+    TaskList(int maxTasks, string Work){
         this->maxTasks=maxTasks;
         numberOfTasks=0;
         tasks = new Task[maxTasks];
-        this->Professor=Professor;
+        this->Work=Work;
     }
     
     ~TaskList(){
@@ -115,11 +116,11 @@ public:
     }
     
     /*Getters and Setters*/
-    string getProfessor(){ return Professor; }
+    string getWork(){ return Work; }
     int getPendingTasks(){ return numberOfTasks; }
     int getMaxTasks(){ return maxTasks; }
     
-    void setProfessor(string Professor){ this->Professor = Professor; }
+    void setWork(string Work){ this->Work = Work; }
     void setMaxTasks(int maxTasks){ this->maxTasks = maxTasks; }
     
     /*Functions for Implementing Priority Queue */
